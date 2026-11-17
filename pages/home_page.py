@@ -13,18 +13,15 @@ class HomePage(BasePage):
         super().__init__(page)
         self.search_box = page.get_by_test_id("search-query")
         self.search_result_count = page.get_by_test_id("search-result-count")
-        # TODO B1.1: search_button, search_caption, search_completed, product_names
         self.search_button = page.get_by_test_id("search-submit")
         self.search_caption = page.get_by_test_id("search-caption")
         self.search_completed = page.get_by_test_id("search_completed")
         self.product_names = page.get_by_test_id("product-name")
-        # TODO B1.2: no_results
         self.no_results = page.get_by_test_id("no-results")
-        # TODO B1.7: sort_select, product_prices
         self.sort_select = page.get_by_test_id("sort")
         self.sorting_completed = page.get_by_test_id("sorting_completed")
         self.product_prices = page.get_by_test_id("product-price")
-        # TODO B2/B4 (later): price_slider_max = page.get_by_role("slider").nth(1)
+        self.filter_completed = page.get_by_test_id("filter_completed")
 
     def open(self):
         """Return only after the first product list has arrived.
@@ -46,13 +43,18 @@ class HomePage(BasePage):
         self.sort_select.select_option(value)
         return self
 
+    def filter_by_category(self, category_name: str):
+        self.page.get_by_label(category_name).check()
+        return self
+
     def product_card(self, name: str):
         # Exact name match: "Pliers" must not match "Combination Pliers".
         return self.product_names.filter(has_text=re.compile(rf"^\s*{re.escape(name)}\s*$"))
 
     def open_product(self, name: str):
         from pages.product_page import ProductPage
-        self.product_card(name).click()
+
+        self.product_card(name).first.click()
         return ProductPage(self.page)
 
     def prices(self) -> list[float]:
