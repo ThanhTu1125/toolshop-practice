@@ -1,5 +1,7 @@
 # Toolshop Practice - bài thực hành 4 buổi (Automation Testing)
 
+![CI](https://github.com/ThanhTu1125/toolshop-practice/actions/workflows/ci.yml/badge.svg)
+
 Repo này là "phòng lab" trên lớp. Mỗi buổi có một thư mục bài tập trong `tests/`. Bài nào chưa làm sẽ đỏ (`NotImplementedError`), làm xong thì xanh. Mục tiêu mỗi buổi: biến đỏ thành xanh, đúng luật.
 
 Hệ thống kiểm thử: Toolshop https://practicesoftwaretesting.com (PROD) và https://with-bugs.practicesoftwaretesting.com (BUGGY).
@@ -133,3 +135,5 @@ Thư mục `bai-doc/` có một bài đọc cho mỗi buổi (25 - 35 phút), cu
 - Chạy `--headed --slowmo 500` để xem.
 - Mở trace.
 - Sau mỗi buổi giảng viên phát bản `pages/` hoàn chỉnh để ai chậm vẫn theo kịp buổi sau.
+
+![CI](https://github.com/ThanhTu1125/toolshop-practice/actions/workflows/ci.yml/badge.svg)
