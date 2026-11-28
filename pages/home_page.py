@@ -22,6 +22,8 @@ class HomePage(BasePage):
         self.sorting_completed = page.get_by_test_id("sorting_completed")
         self.product_prices = page.get_by_test_id("product-price")
         self.filter_completed = page.get_by_test_id("filter_completed")
+        self.price_slider_max = page.get_by_role("slider").nth(1)
+        self.pagination_next = page.get_by_test_id("pagination-next")
 
     def open(self):
         """Return only after the first product list has arrived.
